@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+int main() {
+    int a, b, mul, step;
+    cout << "Enter the a: ";
+    cin >> a;
+    cout << "Enter the b: ";
+    cin >> b;
+    mul = a > b ? a : b;
+    step = mul;
+    while (true) {
+        if (mul % a == 0 && mul % b == 0)
+            break;
+        mul += step;
+    }
+    cout << "LCM IS: " << mul << endl;
+    return 0;
+}
