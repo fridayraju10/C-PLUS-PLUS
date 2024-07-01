@@ -1,0 +1,41 @@
+#include <iostream>
+#include <iomanip>
+#include <thread>
+#include <chrono>
+
+using namespace std;
+
+int main()
+{
+    int s, m, h;
+    s = 0;
+    m = 0;
+    h = 0;
+
+    while (true)
+    {
+        cout << "\r" << setw(2) << setfill('0') << h << " : "
+             << setw(2) << setfill('0') << m << " : "
+             << setw(2) << setfill('0') << s << flush;
+        this_thread::sleep_for(chrono::seconds(1));
+        s = s + 1;
+
+        if (s == 60)
+        {
+            m = m + 1;
+            s = 0;
+        }
+        else if (m == 60)
+        {
+            h = h + 1;
+            m = 0;
+        }
+        else if (h == 5)
+        {
+            h = 0;
+            s = 0;
+            m = 0;
+        }
+    }
+    return 0;
+}
