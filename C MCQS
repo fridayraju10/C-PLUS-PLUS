@@ -1,0 +1,147 @@
+-----------------1----------------------------------------
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char word[] = "HKNUDT";
+    int length = strlen(word);
+
+    for (int i = 0; i < length; i++) {
+        for (int j = 0; j <= i; j++) {
+            printf("%c", word[j] + 1);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+-------------------------2-------------------------------
+#include <stdio.h>
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        for (int j = 1; j <= i; j++) {
+            if (j % 2 == 0) {
+                printf("X");
+            } else {
+                printf("O");
+            }
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}
+-----------------------------3--------------------------------
+#include <stdio.h>
+
+int main() {
+    int array[3][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+
+    int sum = 0;
+    
+    for (int i = 0; i < 3; i++) {  
+        for (int j = 0; j < 3; j++) {  
+            sum += array[i][j];
+            if (sum % 5 == 0) {
+                printf("Sum: %d\n", sum);
+                return 0;
+            }
+        }
+    }
+
+    return 0;
+}
+-----------------------------4------------------------
+#include <stdio.h>
+
+void ram(int n) {
+    for (int i = 0; i < 20; i++) {
+        if (i % n == 3) {
+            return;
+        } else {
+            printf("Hai\n");
+        }
+    }
+    printf("Are u Ok?\n");
+}
+
+int main() {
+    ram(4);
+    return 0;
+}
+------------------------5-----------------------------
+#include <stdio.h>
+
+void flower(int a) {
+    if (a == 4)
+        return;
+    printf("%d ", a + 10);
+    flower(a + 1);
+    printf("%d ", a);
+}
+
+int main() {
+    flower(1);
+    return 0;
+}
+---------------------6-----------------------------
+#include <stdio.h>
+
+void raju(int a) {
+    if (a == 1)
+        return;
+    a--;
+    raju(a);
+    printf("Hai\n");
+    raju(a);
+}
+
+int main() {
+    raju(5);
+    return 0;
+}
+-------------------7----------------------
+
+int a=10;       address of a is '4302'
+       int *p;           addrss of p is '4333'
+       int **p2;      address of p2='8767'
+       p=&a;
+       p2=&p;
+
+
+print(**p2)  
+-------------------------8----------------------
+#include <stdio.h>
+
+
+int main() {
+    printf("%d",10*2+4/2-5*3);
+    return 0;
+}
+---------------------------9----------------------
+HOw many special charcters are there digitally?
+----------------------------10-----------------------
+#include <stdio.h>
+
+int a=10;
+int b=20;
+int c=30;
+void raju()
+{
+    printf("\n%d",c);
+}
+
+int main()
+{
+    c=10;
+    b=b+c;
+    printf("%d",b);
+    raju();
+    return 0;
+}
+----------------------------------
