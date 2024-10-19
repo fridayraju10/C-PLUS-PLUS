@@ -1,0 +1,67 @@
+#include<stdio.h>
+#include<conio.h>
+#include<time.h>
+typedef struct hostel{
+     int rollno;
+     char name[30];
+     char location[15];
+     int roomno;
+     char gender[6];
+}hostel;
+
+void create()
+{
+    srand(time(NULL));
+    hostel h;
+    FILE *fp=fopen("ra.txt","a");
+    printf("Enter Rollno :" );
+    scanf("%d",&h.rollno);
+    printf("Enter name:" );
+    scanf("%s",h.name);
+    printf("Enter location :" );
+    scanf("%s",h.location);
+    printf("Enter gender :" );
+    scanf("%s",h.gender);
+    h.roomno=(rand()% 5) +1;
+    fwrite(&h,sizeof(hostel),1,fp);
+    fclose(fp);
+
+}
+
+void display()
+{
+hostel h1;
+FILE *fp=fopen("ra.txt","r");
+printf("\n ------------------------------------------------------------------------------\n");
+printf("%-10s%-20s%-15s%-10s%-5s","ROLL NO","NAME","LOCATION","GENDER","ROOM NO");
+printf("\n ------------------------------------------------------------------------------\n");
+
+while(fread(&h1,sizeof(hostel),1,fp))
+
+   printf("%-10d%-20s%-15s%-10s%-5d\n",h1.rollno,h1.name,h1.location,h1.gender,h1.roomno);
+}
+
+
+int main()
+{
+    int ch;
+    do{
+        printf("\n1.ALLOCATE NEW ROOM");
+        printf("\n2. DISPLAY THE DETALS");
+        printf("\n3.EXIT");
+        printf("\n Enter your Choice");
+        scanf("%d",&ch);
+
+            switch(ch){
+               case 1:
+                    create();
+                    break;
+               case 2:
+                    display();
+                    break;
+               case 3:
+                    printf(" \n thanks....\n");
+                    exit(0);
+            }
+    }while(ch!=0);
+}
